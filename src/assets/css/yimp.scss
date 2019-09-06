@@ -1,0 +1,118 @@
+@import "functions";
+@import "variables";
+
+.navbar {
+    .breadcrumb {
+        padding: 0;
+
+        .navbar-text {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.navbar-brand {
+    .back {
+        float: left;
+        width: 20px;
+        margin-left: -20px;
+    }
+}
+
+.navbar-menu {
+    position: fixed;
+    z-index: 1000;
+    width: 300px;
+    display: none;
+
+    &-left {
+        height: 100%;
+    }
+
+    &-right {
+        right: 0;
+        padding-bottom: 1rem;
+    }
+
+    .nav {
+        width: 300px;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    li {
+        > span {
+            margin-top: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        &:first-child > span {
+            margin-top: 0;
+        }
+    }
+
+    hr {
+        border-top-color: white;
+    }
+
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        padding-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 0.5rem 0.5rem 2rem;
+        color: white;
+        background-color: transparent !important;
+    }
+
+    &-backdrop {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: 990;
+    }
+}
+
+.navbar-icon-container {
+    width: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+.sidebar-menu {
+
+    .nav-link {
+        border-radius: 0;
+        font-size: 0.95rem;
+        padding: 0.25rem 1rem;
+        color: $secondary;
+        &.active {
+            background-color: $gray-500;
+        }
+    }
+
+    li > span {
+        color: $dark !important;
+        margin-top: 0.5rem;
+        font-weight: 500;
+    }
+
+    li:first-child > span {
+        font-size: 1.25rem;
+        line-height: 1.25;
+        margin-top: 0;
+    }
+}

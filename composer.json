@@ -1,0 +1,23 @@
+{
+	"name": "dmitrybtn/yii2-yimp",
+	"type": "yii2-extension",
+    "description": "Dashboard for the Yii framework based on Bootstrap 4",
+    "keywords": ["yii2", "bootstrap", "bootstrap4", "dashboard"],
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Dmitry Tishurin",
+        "email": "dmitrybtn@ya.ru"
+      }
+    ],
+    "require": {
+      "yiisoft/yii2": "~2.0",
+      "yiisoft/yii2-bootstrap4": "^2.0",
+      "bower-asset/fontawesome":  "~5.10.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "dmitrybtn\\yimp\\": "src"
+        }
+    }
+}

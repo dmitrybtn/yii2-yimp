@@ -1,0 +1,1 @@
+<?php echo $this->renderFile('@yii/gii/generators/crud/default/search.php', ['generator' => $generator], $this->context) ?>
