@@ -48,6 +48,10 @@ use yii\web\View;
  * @method endSidebars()
  * @method beginContent()
  * @method endContent()
+ * @method beginLeftSidebarMenu()
+ * @method endLeftSidebarMenu()
+ * @method beginRightSidebarMenu()
+ * @method endRightSidebarMenu()
  *
  * @author Dmitry Tishurin <dmitrybtn@ya.ru>
  */
@@ -136,11 +140,23 @@ class Yimp extends BaseObject
         'beginLeftSidebar' => [
             '        <div class="d-none d-xl-block col-xl-2">',
         ],
+        'beginLeftSidebarMenu' => [
+            '            <div class="sidebar-menu sidebar-menu-left">',
+        ],
+        'endLeftSidebarMenu' => [
+            '            </div>',
+        ],
         'endLeftSidebar' => [
             '        </div>',
         ],
         'beginRightSidebar' => [
             '        <div class="d-none d-xl-block col-xl-2 offset-xl-8">',
+        ],
+        'beginRightSidebarMenu' => [
+            '            <div class="sidebar-menu sidebar-menu-right">',
+        ],
+        'endRightSidebarMenu' => [
+            '            </div>',
         ],
         'endRightSidebar' => [
             '        </div>',

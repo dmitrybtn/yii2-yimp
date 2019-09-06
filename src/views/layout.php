@@ -33,11 +33,11 @@ $yimp->register($this);
             <?php echo $yimp->beginSidebars() ?>
                 <?php echo $yimp->beginLeftSidebar() ?>
 
-                        <div class="sidebar-menu sidebar-menu-left">
+                        <?php echo $yimp->beginLeftSidebarMenu() ?>
                             <?php echo $yimp->menuLeft([
                                 'options' => ['class' => 'nav-pills flex-column border rounded py-2']
                             ]) ?>
-                        </div>
+                        <?php echo $yimp->endLeftSidebarMenu() ?>
 
                         <?php if (isset($this->blocks[$yimp::SIDEBAR_LEFT])): ?>
                             <?php echo $this->blocks[$yimp::SIDEBAR_LEFT] ?>
@@ -46,11 +46,11 @@ $yimp->register($this);
                 <?php echo $yimp->endLeftSidebar() ?>
                 <?php echo $yimp->beginRightSidebar() ?>
 
-                        <div class="sidebar-menu sidebar-menu-right">
+                        <?php echo $yimp->beginRightSidebarMenu() ?>
                             <?php echo $yimp->menuRight([
                                 'options' => ['class' => 'nav-pills flex-column border rounded py-2']
                             ]) ?>
-                        </div>
+                        <?php echo $yimp->endRightSidebarMenu() ?>
 
                         <?php if (isset($this->blocks[$yimp::SIDEBAR_RIGHT])): ?>
                             <?php echo $this->blocks[$yimp::SIDEBAR_RIGHT] ?>
