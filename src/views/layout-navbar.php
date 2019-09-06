@@ -13,15 +13,12 @@ use yii\bootstrap4\Breadcrumbs;
 
 /** @var Yimp $yimp */
 
-
-// TODO: Перенести это в код виджета
 $strMenuLeft = $yimp->menuLeft(['mode' => $yimp::MOBILE, 'options' => ['class' => 'flex-column']]);
 $strMenuTop = $yimp->menuTop(['mode' => $yimp::MOBILE, 'options' => ['class' => 'navbar-nav d-none d-xl-flex ml-auto']]);
 $strMenuRight = $yimp->menuRight(['mode' => $yimp::MOBILE, 'options' => ['class' => 'flex-column']])
 
 ?>
 
-<!-- Todo: Центрирование заголовка если нет одной из боковых кнопок -->
 <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark px-1 px-md-2 px-xl-3 py-0 py-md-2">
 
     <!-- Left menu toggle button -->
@@ -40,7 +37,7 @@ $strMenuRight = $yimp->menuRight(['mode' => $yimp::MOBILE, 'options' => ['class'
     <!-- Breadcrumbs for desktops -->
     <?php if ($yimp->nav->crumbs !== false): ?>
 
-        <!-- Todo: Написать нормальный адаптер? -->
+        <!-- Todo: Make normal adapter? -->
         <?php foreach ($yimp->nav->crumbs as &$crumb): ?>
             <?php Html::addCssClass($crumb, 'navbar-text'); ?>
         <?php endforeach ?>

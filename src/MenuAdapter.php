@@ -11,8 +11,6 @@ use yii\helpers\ArrayHelper;
  * Adapter for [yii\bootstrap4\Nav](https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/api/2.0/yii-bootstrap4-nav),
  * providing some additional functionality.
  *
- * TODO: Написать, что компонент создается через DI-контейнер
- *
  * The following functionality is provided:
  *
  * 1. Configure items visibility for desktops and mobiles separately.

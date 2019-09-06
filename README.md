@@ -2,11 +2,13 @@
 
 ### Концепция
 
-YIMP - это панель управления, предназначенная для создания собственных CMS или информационных систем.
+YIMP - это панель управления, предназначенная для быстрого создания пользовательского интерфейса.
 
 YIMP предоставляет лейаут, адаптированный для мобильных устройств и включающий в себя заголовок страницы, хлебные крошки,
 а также три меню - верхнее, левое и правое. Эти свойства настраиваются в контроллере и передаются в лейаут через
 специальный класс Navigator.
+
+Полезные ссылки: [Live demo](http://yimp.ru), [API documentation](http://yimp.ru/api/).
 
 ### Установка через Composer
 
@@ -201,7 +203,7 @@ class OrderController extends \yii\web\Controller
 
 ```
 <?php $this->beginBlock(Yimp::SIDEBAR_RIGHT); ?>
-    <div class="sidebar-form-controls border rounded p-3">
+    <div class="border rounded p-3 mt-3">
         <div class="h5">Caption</div>
         Your widget HTML
     </div>

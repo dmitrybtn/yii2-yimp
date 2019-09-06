@@ -3,8 +3,6 @@
 use dmitrybtn\yimp\Yimp;
 use yii\bootstrap4\Html;
 
-// TODO: Тут точно нужно прямое обращение к Dashboard?
-
 ?>
 
 

@@ -20,7 +20,7 @@ use yii\web\View;
  * $yimp->register($this);
  * ```
  *
- * TODO: Github link
+ * The best example of it's usage is [layout template](https://github.com/dmitrybtn/yii2-yimp/blob/master/src/views/layout.php).
  *
  * On initialisation, [[Yimp::nav]] and [[Yimp::menu]] properties are instantiated.
  *
