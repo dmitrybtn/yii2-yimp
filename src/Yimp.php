@@ -13,32 +13,20 @@ use yii\web\View;
 /**
  * Main package class, used to render layout snippets.
  *
- * To use it in your layout you must firstly register it:
+ * To use YIMP you must create an object of this class and call [[Yimp::register()]] in layout. Also you should extend [[Navigator]] class
+ * in your application and add it to your controllers as `nav` property. Then, in controller actions you should set
+ * necessary properties of Navigator and they will be automatically shown in layout.
+ *
+ * When this class inits, it looks for `nav` property of current controller. If this property absents or is not instance
+ * of [[Navigator]], it will be created via DI-container using 'yimp-nav' alias. So, if you want to use YIMP with third-party modules,
+ * you should use 'yimp-nav' alias to set your default navigator in DI-container:
  *
  * ```
- * $yimp = new Yimp();
- * $yimp->register($this);
- * ```
- *
- * The best example of it's usage is [layout template](https://github.com/dmitrybtn/yii2-yimp/blob/master/src/views/layout.php).
- *
- * On initialisation, [[Yimp::nav]] and [[Yimp::menu]] properties are instantiated.
- *
- * To instantiate [[Yimp::nav]] property, firstly existence of `Yii::$app->controller->nav` is checked. If `Yii::$app->controller->nav` property
- * exists and is instance of [[Navigator]], it is imported in [[Yimp::nav]] property. Otherwise it is created via
- * DI container by alias, stored in [[Yimp::DEFAULT_NAV_ALIAS]]. If you want to set default navigator (i.e. to keep
- * your left menu while working with third-party modules), you can do the following:
- *
- * ```
- * Yii::$container->set(Yimp::DEFAULT_NAV_ALIAS, [
+ * Yii::$container->set('yimp-nav', [
  *     'class' => '\your\navigator\Class',
  *     // Your config
  * ])
  * ```
- *
- * [[Yimp::menu]] property is instantiated via DI container by alias, stored in [[Yimp::DEFAULT_MENU_ALIAS]]. You can
- * override it in same way, as you can do it for [[Yimp::nav]] property.
- *
  *
  * @method beginSidebars()
  * @method beginLeftSidebar()

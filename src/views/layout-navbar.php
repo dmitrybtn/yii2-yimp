@@ -29,7 +29,7 @@ $strMenuRight = $yimp->menuRight(['mode' => $yimp::MOBILE, 'options' => ['class'
     </div>
 
     <!-- Brand for desktops -->
-    <?php echo Html::a(Yii::$app->name, Url::home(), ['class' => 'navbar-brand d-none d-xl-flex']) ?>
+    <?php echo Html::a($yimp->nav->brand, Url::home(), ['class' => 'navbar-brand d-none d-xl-flex']) ?>
 
     <!-- Brand for mobiles -->
     <?php echo $yimp->headerMobile(['class' => 'navbar-brand mx-auto d-block d-md-none']) ?>
@@ -43,7 +43,7 @@ $strMenuRight = $yimp->menuRight(['mode' => $yimp::MOBILE, 'options' => ['class'
         <?php endforeach ?>
 
         <?php echo Breadcrumbs::widget([
-            'links' => array_merge($yimp->nav->crumbs, [['label' => $yimp->nav->headerCrumb, 'class' => 'navbar-text']]),
+            'links' => $yimp->nav->headerCrumb !== false ? array_merge($yimp->nav->crumbs, [['label' => $yimp->nav->headerCrumb, 'class' => 'navbar-text']]) : $yimp->nav->crumbs,
             'options' => ['class' => 'breadcrumb bg-transparent d-none d-md-flex my-auto ml-2'],
             'homeLink' => ['label' => Yii::t('yii', 'Home'), 'url' => Yii::$app->homeUrl, 'class' => 'navbar-text'],
         ]) ?>
@@ -71,7 +71,7 @@ $strMenuRight = $yimp->menuRight(['mode' => $yimp::MOBILE, 'options' => ['class'
 </nav>
 
 <!-- Left and top menu for phones -->
-<div class="navbar-menu navbar-menu-left bg-secondary mt-n3">
+<div class="navbar-menu navbar-menu-left mt-n3">
     <?php echo $strMenuLeft ?>
     <?php if ($strMenuLeft && $strMenuTop): ?>
         <hr>
@@ -80,7 +80,7 @@ $strMenuRight = $yimp->menuRight(['mode' => $yimp::MOBILE, 'options' => ['class'
 </div>
 
 <!-- Right menu for phones -->
-<div class="navbar-menu navbar-menu-right bg-secondary mt-n3">
+<div class="navbar-menu navbar-menu-right mt-n3">
     <?php echo $strMenuRight ?>
 </div>
 

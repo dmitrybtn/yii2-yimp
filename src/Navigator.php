@@ -8,55 +8,41 @@ use Yii;
 use yii\base\BaseObject;
 
 /**
- * Base class to pass headers, breadcrumbs and menu settings from controller to layout.
+ * Base class to pass data from controller to layout.
  *
- * To use YIMP, you should extend this class in your application, and include it in your controllers as `nav` property like this:
+ * Navigator has the following properties, used in layout:
  *
- * ```
- * class SiteController extends \yii\web\Controller
- * {
- *     public $nav;
+ * - `brand`: Application name, displayed as brand label in navbar. It is `Yii::$app->name` by default.
+ * - `title`: Page name, displayed as `<title>` tag. It is `ucfirst(Yii::$app->controller->action->id)` by default. This property
+ *   is also used as default value for `header`, `headerMobile`, and `headerCrumb` properties.
+ * - `headerDesktop`: Page name, displayed as `<h1>` on desktops. If false, `<h1>` will not be displayed.
+ * - `headerMobile`: Page name, displayed in navbar on mobiles.
+ * - `headerCrumb`: Last part of breadcrumbs, representing current page title. If false, it will not be displayed.
+ * - `menuLeft`: left menu config, represented by [yii\bootstrap4\Nav::items](https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/api/2.0/yii-bootstrap4-nav)
+ *   with additional functionality, provided by [[MenuAdapter]].
+ * - `menuRight`: right menu config, represented by [yii\bootstrap4\Nav::items](https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/api/2.0/yii-bootstrap4-nav)
+ *   with additional functionality, provided by [[MenuAdapter]].
+ * - `menuTop`: top menu config, represented by [yii\bootstrap4\Nav::items](https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/api/2.0/yii-bootstrap4-nav)
+ *   with additional functionality, provided by [[MenuAdapter]].
+ * - `crumbs`: Breadcrumbs config, represented by [yii\bootstrap4\Breadcrumbs::links](https://www.yiiframework.com/extension/yiisoft/yii2-bootstrap4/doc/api/2.0/yii-bootstrap4-breadcrumbs) property,
+ *   without last item, which is taken from `headerCrumb` property.
  *
- *     public function init()
- *     {
- *         parent::init();
- *         $this->nav = new Navigator();
- *     }
  *
- *     public function actionAbout()
- *     {
- *         $this->nav->title = 'About';
- *         return $this->render('about');
- *     }
- * }
- * ```
- *
- * When [[Yimp]] class inits, it looks for `nav` property of current controller, and if this property exists and is instance of
- * [[Navigator]], Yimp uses it to render the corresponding layout snippets. If current controller does not have `nav`
- * property, Yimp will use navigator, created via DI Container by alias, stored in [[Yimp::DEFAULT_NAV_ALIAS]]. That's why, if you
- * want to set default navigator (i.e. to keep your left menu while working with third-party modules), you can do the following:
- *
- * ```
- * Yii::$container->set(Yimp::DEFAULT_NAV_ALIAS, [
- *     'class' => '\your\navigator\Class',
- *     // Your config
- * ])
- * ```
- *
- * @property string $title Page title, rendered in <title> tag
- * @property string|false $header
- * @property string $headerCrumb
- * @property string $headerDesktop
+ * @property string $brand
+ * @property string $title
  * @property string $headerMobile
+ * @property string|false $headerDesktop
+ * @property string|false $headerCrumb
  *
  * @author Dmitry Tishurin <dmitrybtn@ya.ru>
  */
 class Navigator extends BaseObject
 {
-    private $_title;
-    private $_headerDesktop;
-    private $_headerMobile;
-    private $_headerCrumb;
+    protected $_brand;
+    protected $_title;
+    protected $_headerDesktop;
+    protected $_headerMobile;
+    protected $_headerCrumb;
 
     /**
      * @var array|false Breadcrumbs config, passed to [Breadcrumbs]() widget.
@@ -91,6 +77,33 @@ class Navigator extends BaseObject
      * settings and others) and configure it in your implementation of [[Navigator]] class.
      */
     public $menuTop = [];
+
+
+    /**
+     * Getter for `brand` property
+     *
+     * If `brand` property was not set by [[setBrand]], `Yii::$app->name` will be returned.
+     *
+     * @return string Brand label
+     */
+    public function getBrand(): string
+    {
+        if ($this->_brand === null) {
+            return Yii::$app->name;
+        }
+
+        return $this->_brand;
+    }
+
+    /**
+     * Setter fot `brand` property
+     *
+     * @param string $brand
+     */
+    public function setBrand(string $brand): void
+    {
+        $this->_brand = $brand;
+    }
 
     /**
      * Getter for `title` property, used to render `<title>` tag.

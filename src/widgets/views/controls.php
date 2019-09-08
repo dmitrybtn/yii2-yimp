@@ -7,7 +7,7 @@ use yii\bootstrap4\Html;
 
 
 
-<!-- Опции для десктопов -->
+<!-- Options for desktops -->
 <?php $this->beginBlock(Yimp::SIDEBAR_RIGHT); ?>
     <div class="sidebar-form-controls border rounded p-3">
         <div class="h5">Options</div>
@@ -17,7 +17,7 @@ use yii\bootstrap4\Html;
 <?php $this->endBlock(); ?>
 
 
-<!-- Опции для телефонов -->
+<!-- Options for mobiles -->
 <?php $this->beginBlock(Yimp::FOOTER); ?>
 
     <footer class="container-fluid fixed-bottom py-2 bg-light d-xl-none">

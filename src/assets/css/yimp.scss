@@ -1,6 +1,9 @@
 @import "functions";
 @import "variables";
 
+$navbar-menu-color: $white;
+$navbar-menu-background-color: $gray-600;
+
 .navbar {
     .breadcrumb {
         padding: 0;
@@ -25,6 +28,7 @@
     z-index: 1000;
     width: 300px;
     display: none;
+    background-color: $navbar-menu-background-color;
 
     &-left {
         height: 100%;
@@ -40,7 +44,7 @@
     }
 
     .nav-link {
-        color: white;
+        color: $navbar-menu-color;
     }
 
     li {
@@ -56,7 +60,12 @@
     }
 
     hr {
-        border-top-color: white;
+        border-top-color: $navbar-menu-color;
+    }
+
+    a.active {
+        color: $navbar-menu-background-color;
+        background-color: $navbar-menu-color;
     }
 
     .dropdown-menu {
@@ -65,15 +74,19 @@
         width: auto;
         margin-top: 0;
         padding-top: 0;
-        background-color: transparent;
+        background-color: $navbar-menu-background-color;
         border: 0;
         box-shadow: none;
     }
 
     .dropdown-item {
         padding: 0.5rem 0.5rem 0.5rem 2rem;
-        color: white;
-        background-color: transparent !important;
+        color: $navbar-menu-color;
+
+        &:hover {
+            color: $navbar-menu-color;
+            background-color: transparent;
+        }
     }
 
     &-backdrop {
