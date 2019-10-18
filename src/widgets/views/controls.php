@@ -12,7 +12,10 @@ use yii\bootstrap4\Html;
     <div class="sidebar-form-controls border rounded p-3">
         <div class="h5"><?php echo $this->context->title ?></div>
         <?php echo Html::submitButton(Yii::t('yimp', 'Save'), ['class' => 'btn btn-success btn-block', 'form' => $this->context->form->id]) ?>
-        <?php echo Html::a(Yii::t('yimp', 'Cancel'), $this->context->cancelUrl, ['class' => 'btn btn-outline-secondary btn-block']) ?>
+
+        <?php if ($this->context->cancelUrl): ?>
+            <?php echo Html::a(Yii::t('yimp', 'Cancel'), $this->context->cancelUrl, ['class' => 'btn btn-outline-secondary btn-block']) ?>
+        <?php endif ?>
     </div>
 <?php $this->endBlock(); ?>
 
@@ -22,7 +25,10 @@ use yii\bootstrap4\Html;
 
     <footer class="container-fluid fixed-bottom py-2 bg-light d-xl-none">
         <div class="row justify-content-center">
-            <div class="col-6 col-md-5"><?php echo Html::a(Yii::t('yimp', 'Cancel'), $this->context->cancelUrl, ['class' => 'btn btn-block btn-secondary']) ?></div>
+            <?php if ($this->context->cancelUrl): ?>
+                <div class="col-6 col-md-5"><?php echo Html::a(Yii::t('yimp', 'Cancel'), $this->context->cancelUrl, ['class' => 'btn btn-block btn-secondary']) ?></div>
+            <?php endif ?>
+
             <div class="col-6 col-md-5"><?php echo Html::submitButton(Yii::t('yimp', 'Save'), ['class' => 'btn btn-block btn-success', 'form' => $this->context->form->id]) ?></div>
         </div>
     </footer>

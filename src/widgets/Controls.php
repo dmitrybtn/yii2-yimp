@@ -25,9 +25,9 @@ class Controls extends Widget
     public $title;
 
     /**
-     * @var string Url, rendered as `href` attribute of `Cancel` button.
+     * @var string Url, rendered as `href` attribute of `Cancel` button. If false, `Cancel` button will not be rendered.
      */
-    public $cancelUrl;
+    public $cancelUrl = false;
 
     /**
      * Controls constructor.
