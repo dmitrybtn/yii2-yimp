@@ -39,7 +39,7 @@ $(function(){
 	function showMain() {
 
 		hideContext(function() {
-			let objMenu = $('.navbar-menu-left');
+			var objMenu = $('.navbar-menu-left');
 
 			objMenu.animate({width: 'show'}, 300);
 
@@ -57,7 +57,7 @@ $(function(){
 
 	function showContext() {
 		hideMain(function() {
-			let objMenuContext = $('.navbar-menu-right');
+			var objMenuContext = $('.navbar-menu-right');
 
 			objMenuContext.slideDown(300);
 

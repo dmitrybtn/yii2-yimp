@@ -123,7 +123,7 @@ class Yimp extends BaseObject
     public $templates = [
         'beginSidebars' => [
             '<div class="container-fluid position-fixed">',
-            '    <div class="row justify-content-center">',
+            '    <div class="row">',
         ],
         'beginLeftSidebar' => [
             '        <div class="d-none d-xl-block col-xl-2">',
