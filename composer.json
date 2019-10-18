@@ -19,5 +19,8 @@
         "psr-4": {
             "dmitrybtn\\yimp\\": "src"
         }
+    },
+    "extra": {
+        "bootstrap": "dmitrybtn\\yimp\\Bootstrap"
     }
 }

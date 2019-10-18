@@ -4,6 +4,7 @@
 namespace dmitrybtn\yimp\widgets;
 
 
+use Yii;
 use yii\bootstrap4\Widget;
 
 /**
@@ -18,11 +19,27 @@ class Controls extends Widget
      */
     public $form;
 
+    /**
+     * @var string Title, rendered at the top of widget.
+     */
+    public $title;
 
     /**
      * @var string Url, rendered as `href` attribute of `Cancel` button.
      */
     public $cancelUrl;
+
+    /**
+     * Controls constructor.
+     *
+     * @param array $config
+     */
+    public function __construct($config = [])
+    {
+        $this->title = Yii::t('yimp', 'Options');
+
+        parent::__construct($config);
+    }
 
     /**
      * Runs widget
